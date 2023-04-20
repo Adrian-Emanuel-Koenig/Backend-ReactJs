@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import { apiConnection } from "./config/axiosConfig";
+import Home from "./pages/Home";
+import Productos from "./pages/Productos";
+import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import Registro from "./pages/SignIn";
+import Layout from "./components/Navbar";
 
 function App() {
+  apiConnection.get("/").then(({data}) => {
+    console.log(data);
+  });
+
+  apiConnection.get("/api/productos").then(({data}) => {
+    console.log(data.data);
+  });
+
+  apiConnection.get("/api/username").then(({data}) => {
+    console.log(data);
+  });
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <Routes>
+            <Route path="/" element={<Layout/>}>
+              <Route path="/" element={<Home/>}/>
+              <Route path="productos" element={<Productos/>}/>
+              <Route path="login" element={<Login/>}/>
+              <Route path="registro" element={<Registro/>}/>
+              <Route path="*" element={<NotFound/>}/>
+            </Route>
+          </Routes>
     </div>
   );
 }
