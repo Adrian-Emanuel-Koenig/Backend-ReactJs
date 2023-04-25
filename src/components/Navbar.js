@@ -8,8 +8,7 @@ const Layout = () => {
  
   useEffect(() => {
     apiConnection.get("/api/username").then(({ data }) => {
-      console.log(data)
-      setUsername(data.username);
+      setUsername(data);
     });
   }, []);
 
@@ -20,6 +19,9 @@ const Layout = () => {
     });
   };
 
+  useEffect(()=>{
+    console.log(username)
+  }, [username])
   return (
     <>
       <Navbar variant="dark" bg="dark" expand="lg">
