@@ -15,8 +15,8 @@ const Home = () => {
 
   useEffect(() => {
     apiConnection.get("/api/username").then(({ data }) => {
-      setNickname(data);
-      setUsernameBack(data);
+      setNickname(data.username);
+      setUsernameBack(data.username);
     });
   }, []);
 

@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Registro from "./pages/SignIn";
 import Layout from "./components/Navbar";
+import Profile from "./pages/Perfil";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <Route path="productos" element={<Productos/>}/>
               <Route path="login" element={<Login/>}/>
               <Route path="registro" element={<Registro/>}/>
+              <Route path="perfil" element={<Profile/>}/>
               <Route path="*" element={<NotFound/>}/>
             </Route>
           </Routes>

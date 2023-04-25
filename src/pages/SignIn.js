@@ -7,10 +7,6 @@ import { useNavigate } from "react-router-dom";
 const Registro = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  // const [age, setAge] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [number, setNumber] = useState("");
-  // const [avatar, setAvatar] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,7 +15,6 @@ const Registro = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const userData = { name, surname, age, address, number, avatar, username, password };
     const userData = { name, surname, username, password };
 
     try {
@@ -72,46 +67,6 @@ const Registro = () => {
             onChange={(e) => setSurname(e.target.value)}
           />
         </Form.Group>
-
-        {/* <Form.Group controlId="formBasicAge">
-          <Form.Label>Edad</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Ingresa tu edad"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicAddress">
-          <Form.Label>Dirección</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ingresa tu dirección"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicNumber">
-          <Form.Label>Teléfono</Form.Label>
-          <Form.Control
-            type="number"
-            placeholder="Ingresa tu número de teléfono"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formBasicAvatar">
-          <Form.Label>Avatar</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Ingresa la URL de tu avatar"
-            value={avatar}
-            onChange={(e) => setAvatar(e.target.value)}
-          />
-        </Form.Group> */}
 
         <Form.Group controlId="formBasicUsername">
           <Form.Label>Email</Form.Label>

@@ -2,26 +2,32 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { apiConnection } from "../config/axiosConfig";
 import { useEffect, useState } from "react";
+
 const Layout = () => {
   const [username, setUsername] = useState("");
-  const navigate = useNavigate()
- 
-  useEffect(() => {
-    apiConnection.get("/api/username").then(({ data }) => {
-      setUsername(data);
-    });
-  }, []);
+  const navigate = useNavigate();
+
+  // useEffect(() => {
+  //   apiConnection.get("/api/username").then(({ data }) => {
+  //     setUsername(data);
+  //   });
+  // }, []);
 
   const handleLogout = () => {
     apiConnection.get("/api/logout").then(() => {
       setUsername("");
-      navigate("/login")
+      navigate("/login");
     });
   };
 
-  useEffect(()=>{
-    console.log(username)
-  }, [username])
+  useEffect(() => {
+    apiConnection.get("/api/username").then(({ data }) => {
+      if (data.username) {
+        setUsername(data.username);
+      } 
+    });
+  }, [username]);
+
   return (
     <>
       <Navbar variant="dark" bg="dark" expand="lg">
@@ -36,6 +42,8 @@ const Layout = () => {
               <>
                 <Nav.Link href="#">¡Hola, {username}!</Nav.Link>
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <Nav.Link href="/perfil">Perfil</Nav.Link>
+
               </>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
