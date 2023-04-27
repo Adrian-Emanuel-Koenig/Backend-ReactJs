@@ -46,8 +46,8 @@ const Registro = () => {
 
   return (
     <Container>
-      <h1>Registro</h1>
-      <Form onSubmit={handleSubmit}>
+      <h1>REGISTRO</h1>
+      <Form onSubmit={handleSubmit} className="formLog">
         <Form.Group controlId="formBasicName">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
@@ -92,7 +92,7 @@ const Registro = () => {
           <Form.Label>Confirma tu contraseña</Form.Label>
           <Form.Control
             type="password"
-            placeholder="Ingresa tu contraseña nuevamente"
+            placeholder="Repetir contraseña"
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />

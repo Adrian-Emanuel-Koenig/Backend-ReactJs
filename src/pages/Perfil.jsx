@@ -30,30 +30,6 @@ const Profile = () => {
             <Nav.Link href="#">Mis ordenes</Nav.Link>
           </Nav>
         </Col>
-        <Col md={9}>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Total</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* {storedOrders.map((order, index) => (
-                <tr key={index}>
-                  <td>{index + 1}</td>
-                  <td>{order.product}</td>
-                  <td>{order.quantity}</td>
-                  <td>${order.price.toFixed(2)}</td>
-                  <td>${(order.quantity * order.price).toFixed(2)}</td>
-                </tr>
-              ))} */}
-            </tbody>
-          </Table>
-        </Col>
       </Row>
     </Container>
   );

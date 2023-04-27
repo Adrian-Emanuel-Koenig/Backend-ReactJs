@@ -7,9 +7,11 @@ import NotFound from "./pages/NotFound";
 import Registro from "./pages/SignIn";
 import Layout from "./components/Navbar";
 import Profile from "./pages/Perfil";
-
+import Support from "./pages/Support";
+import { Carrito } from "./components/Carrito";
 function App() {
   return (
+    
     <div className="App">
           <Routes>
             <Route path="/" element={<Layout/>}>
@@ -18,6 +20,8 @@ function App() {
               <Route path="login" element={<Login/>}/>
               <Route path="registro" element={<Registro/>}/>
               <Route path="perfil" element={<Profile/>}/>
+              <Route path="soporte" element={<Support/>}/>
+              <Route path="carrito" element={<Carrito/>}/>
               <Route path="*" element={<NotFound/>}/>
             </Route>
           </Routes>

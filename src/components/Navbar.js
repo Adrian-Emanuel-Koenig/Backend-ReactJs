@@ -2,16 +2,11 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { apiConnection } from "../config/axiosConfig";
 import { useEffect, useState } from "react";
+import { Carrito } from "./Carrito";
 
 const Layout = () => {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   apiConnection.get("/api/username").then(({ data }) => {
-  //     setUsername(data);
-  //   });
-  // }, []);
 
   const handleLogout = () => {
     apiConnection.get("/api/logout").then(() => {
@@ -40,10 +35,10 @@ const Layout = () => {
           <Nav>
             {username ? (
               <>
-                <Nav.Link href="#">¡Hola, {username}!</Nav.Link>
-                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
                 <Nav.Link href="/perfil">Perfil</Nav.Link>
-
+                <Nav.Link href="/soporte">Soporte</Nav.Link>
+                <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
+                <Carrito/>
               </>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>

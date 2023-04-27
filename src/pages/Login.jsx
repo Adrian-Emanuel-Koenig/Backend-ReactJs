@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { apiConnection } from "../config/axiosConfig";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,9 +14,18 @@ const Login = () => {
     const userData = { username, password };
     apiConnection
       .post("/api/login", userData)
-      .then(({data}) => {
-        console.log(data);
-        navigate("/productos");
+      .then(({ data }) => {
+        Swal.fire({
+          position: 'center',
+          background: '#212529',
+          color: "white",
+          title: "Bienvenido " + username+"!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setTimeout(() => {
+          navigate("/productos");
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);
@@ -44,11 +54,12 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Iniciar sesión
-        </Button>
-        <Link to="/registro">¿No tienes cuenta? Regístrate aquí.</Link>
+        <div>
+          <Button variant="primary" type="submit">
+            Iniciar sesión
+          </Button>
+        </div>
+        <Link to="/registro" className="linkRegister">¿No tienes cuenta? Regístrate aquí.</Link>
       </Form>
     </Container>
   );
