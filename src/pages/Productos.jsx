@@ -1,32 +1,24 @@
-import { apiConnection } from "../config/axiosConfig";
-import React, { useState, useEffect, useContext } from "react";
-import { Container, Table, Button, Dropdown } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Container, Table, Button } from "react-bootstrap";
 import { counterContext } from "../context/counterContext";
 import Swal from "sweetalert2";
 
 const Productos = () => {
-  const [productos, setProductos] = useState([]);
-  const { nickname, carro,setCarro } = useContext(counterContext);
-
-  useEffect(() => {
-    apiConnection.get("/api/productos").then(({ data }) => {
-      setProductos(data.data);
-    });
-  }, []);
+  const { carro, setCarro, productos } = useContext(counterContext);
 
   const handleAgregarCarro = (producto) => {
     Swal.fire({
-      position: 'top-end',
-      background: '#198754',
+      position: "top-end",
+      background: "#198754",
       color: "white",
-      width: '17rem',
+      width: "17rem",
       toast: true,
       icon: "success",
       title: "Producto añadido al carro.",
       showConfirmButton: false,
       timer: 1500,
       heightAuto: false,
-      imageHeight: '10rem',
+      imageHeight: "10rem",
     });
     setCarro([...carro, producto]);
   };
@@ -57,7 +49,6 @@ const Productos = () => {
           </tbody>
         </Table>
       </div>
-      
     </Container>
   );
 };

@@ -5,8 +5,9 @@ import { apiConnection } from "../config/axiosConfig";
 import Swal from "sweetalert2";
 
 export const Carrito = () => {
-  const { nickname, carro, setCarro } = useContext(counterContext);
+  const { nickname,carro, setCarro } = useContext(counterContext);
   const [abrirCarrito, setAbrirCarrito] = useState(false);
+
 
   const handleQuitarCarro = (producto) => {
     const nuevoCarro = carro.filter((p) => p._id !== producto._id);

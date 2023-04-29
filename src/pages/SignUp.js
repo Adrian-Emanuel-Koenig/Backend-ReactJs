@@ -30,6 +30,15 @@ const Registro = () => {
       navigate("/login");
 
     } catch (error) {
+      Swal.fire({
+        position: "center",
+        background: "#212529",
+        color: "white",
+        icon: "error",
+        title: "Usuario ya registrado.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       console.error("Error creating user:", error);
     }
   };

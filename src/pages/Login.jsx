@@ -16,10 +16,10 @@ const Login = () => {
       .post("/api/login", userData)
       .then(({ data }) => {
         Swal.fire({
-          position: 'center',
-          background: '#212529',
+          position: "center",
+          background: "#212529",
           color: "white",
-          title: "Bienvenido " + username+"!",
+          title: "Bienvenido " + username + "!",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -29,6 +29,15 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          position: "center",
+          background: "#212529",
+          color: "white",
+          icon: "error",
+          title: "Usuario o contraseña incorrectos.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
   return (
@@ -59,7 +68,9 @@ const Login = () => {
             Iniciar sesión
           </Button>
         </div>
-        <Link to="/registro" className="linkRegister">¿No tienes cuenta? Regístrate aquí.</Link>
+        <Link to="/registro" className="linkRegister">
+          ¿No tienes cuenta? Regístrate aquí.
+        </Link>
       </Form>
     </Container>
   );

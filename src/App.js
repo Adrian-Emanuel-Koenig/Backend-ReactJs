@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Productos from "./pages/Productos";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
-import Registro from "./pages/SignIn";
+import Registro from "./pages/SignUp";
 import Layout from "./components/Navbar";
 import Profile from "./pages/Perfil";
 import Support from "./pages/Support";
