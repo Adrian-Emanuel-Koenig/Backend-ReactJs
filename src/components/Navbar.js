@@ -38,8 +38,7 @@ const Layout = () => {
                 <Nav.Link href="/perfil">Perfil</Nav.Link>
                 <Nav.Link href="/soporte">Soporte</Nav.Link>
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-                <Nav.Link href="/carrito">Carrito</Nav.Link>
-                {/* <Carrito/> */}
+                <Carrito/>
               </>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>

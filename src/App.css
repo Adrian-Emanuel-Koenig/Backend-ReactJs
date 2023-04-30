@@ -38,3 +38,22 @@ body {
     max-width: 350px;
   }
 }
+
+.cartaCarro{
+  position: absolute;
+  top: 100%; 
+  right: 0; 
+  z-index: 999;
+}
+
+.card{
+  border-radius: 10px;
+  background: #ffffff67;
+
+}
+
+.card-body{
+  background: #ffffff67;
+  border-radius: 10px;
+color: white;
+}
