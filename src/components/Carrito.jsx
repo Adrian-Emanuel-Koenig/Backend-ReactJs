@@ -23,17 +23,22 @@ export const Carrito = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Enviar",
       cancelButtonText: "Cancelar",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        apiConnection.post("/api/cart", { username: nickname, cart: carro });
-        setCarro([]);
-        Swal.fire(
-          "¡Enviado!",
-          "Tu carrito ha sido enviado exitosamente",
-          "success"
-        );
-      }
-    });
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          apiConnection.post("/api/cart", { username: nickname, cart: carro });
+          setCarro([]);
+          Swal.fire(
+            "¡Enviado!",
+            "Tu carrito ha sido enviado exitosamente",
+            "success"
+          );
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        Swal.fire("Error", "Hubo un problema al enviar tu carrito", "error");
+      });
   };
 
   return (
