@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import io from "socket.io-client";
 import { counterContext } from "../context/counterContext";
 
-const socket = io("http://localhost:8080");
+const socket = io("backend-server-production-c1b9.up.railway.app");
 
 const Support = () => {
   const [message, setMessage] = useState("");
