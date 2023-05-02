@@ -35,7 +35,7 @@ const Profile = () => {
           </thead>
           <tbody>
             {storedOrders.map((data) => (
-              <tr>
+              <tr key={data._id}>
                 <td>{data._id}</td>
                 <td>{data.cart.map((item) => JSON.stringify(item.nombre)).join(", ")}</td>
                 <td>{data.date}</td>
