@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Nav, Table } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import { apiConnection } from "../config/axiosConfig";
 
 const Profile = () => {
