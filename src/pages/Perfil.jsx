@@ -7,9 +7,8 @@ const Profile = () => {
   const [storedOrders, setStoredOrders] = useState([]);
 
   useEffect(() => {
-    if(usernameBack){
+    if (usernameBack) {
       apiConnection.get(`/api/cart/${usernameBack}`).then((res) => {
-          console.log(res.data)
         setStoredOrders(res.data);
       });
     }
@@ -20,18 +19,32 @@ const Profile = () => {
       setUsernameBack(data.username);
     });
   }, []);
-
+  console.log(storedOrders);
   return (
-    <Container style={{ backgroundColor: "white" }}>
-      <Row>
-        <Col md={3}>
-          <Nav className="flex-column">
-            <Nav.Link href="#">Mis datos</Nav.Link>
-            <Nav.Link href="#">Mis ordenes</Nav.Link>
-          </Nav>
-        </Col>
-      </Row>
-    </Container>
+    <>
+
+      <Container>
+        <h3>Mis ordenes</h3>
+        <Table striped bordered variant="dark">
+          <thead>
+            <tr>
+              <th>N° de orden</th>
+              <th>Productos</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            {storedOrders.map((data) => (
+              <tr>
+                <td>{data._id}</td>
+                <td>{data.cart.map((item) => JSON.stringify(item.nombre)).join(", ")}</td>
+                <td>{data.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Container>
+    </>
   );
 };
 

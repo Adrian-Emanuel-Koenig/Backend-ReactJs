@@ -40,15 +40,15 @@ body {
 }
 
 .cartaCarro{
-  position: absolute;
-  top: 100%; 
+  position: fixed;
+  top: 0; 
   right: 0; 
   z-index: 999;
 }
 
 .card{
   border-radius: 10px;
-  background: #ffffff67;
+  background: #ffffff9c;
 
 }
 

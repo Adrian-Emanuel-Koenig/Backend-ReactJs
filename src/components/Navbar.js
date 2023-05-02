@@ -2,7 +2,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import { apiConnection } from "../config/axiosConfig";
 import { useEffect, useState } from "react";
-import { Carrito } from "./Carrito";
 
 const Layout = () => {
   const [username, setUsername] = useState("");
@@ -19,7 +18,7 @@ const Layout = () => {
     apiConnection.get("/api/username").then(({ data }) => {
       if (data.username) {
         setUsername(data.username);
-      } 
+      }
     });
   }, [username]);
 
@@ -29,16 +28,14 @@ const Layout = () => {
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/productos">Productos</Nav.Link>
-          </Nav>
+          <Nav className="mr-auto"></Nav>
           <Nav>
             {username ? (
               <>
+                <Nav.Link href="/productos">Productos</Nav.Link>
                 <Nav.Link href="/perfil">Perfil</Nav.Link>
                 <Nav.Link href="/soporte">Soporte</Nav.Link>
                 <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
-                <Carrito/>
               </>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>

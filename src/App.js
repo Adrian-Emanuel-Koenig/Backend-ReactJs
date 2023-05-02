@@ -11,7 +11,7 @@ import Support from "./pages/Support";
 import { Carrito } from "./components/Carrito";
 function App() {
   return (
-    
+
     <div className="App">
           <Routes>
             <Route path="/" element={<Layout/>}>
