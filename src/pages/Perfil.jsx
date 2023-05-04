@@ -30,7 +30,9 @@ const Profile = () => {
             <tr>
               <th>N° de orden</th>
               <th>Productos</th>
+              <th>Monto total</th>
               <th>Fecha</th>
+              <th>Estado de Orden</th>
             </tr>
           </thead>
           <tbody>
@@ -38,7 +40,15 @@ const Profile = () => {
               <tr key={data._id}>
                 <td>{data._id}</td>
                 <td>{data.cart.map((item) => JSON.stringify(item.nombre)).join(", ")}</td>
+                <td>${data.totalPrice}</td>
                 <td>{data.date}</td>
+                <td>
+                  {data.orderStatus === true
+                    ? "Aprobado"
+                    : data.orderStatus === false
+                    ? "Rechazado"
+                    : "Pendiente"}
+                </td>
               </tr>
             ))}
           </tbody>

@@ -61,7 +61,6 @@ const Producto = ({ producto, onAgregarCarro }) => {
     <tr>
       <td>{producto.nombre}</td>
       <td>${producto.precio}</td>
-      {/* <td>{producto.stock}</td> */}
       <th>{producto.categoria}</th>
       <td>
         <img
